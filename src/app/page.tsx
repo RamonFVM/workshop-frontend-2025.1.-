@@ -15,7 +15,13 @@ export default function Home() {
           O mundo de Pokémon é vasto, com diversas regiões (como Kanto, Johto, Hoenn, Sinnoh, Unova, Galar, entre outras) onde os treinadores podem explorar, capturar novos Pokémon e enfrentar desafios. Cada região apresenta novas espécies de Pokémon e cenários únicos, o que mantém a franquia sempre interessante para os jogadores. <br />
           Em resumo, Pokémon é uma franquia multimídia que envolve jogos, anime, filmes, cartas colecionáveis e muito mais. Com uma enorme base de fãs ao redor do mundo, Pokémon continua sendo uma das franquias mais bem-sucedidas e influentes da história do entretenimento. Seu conceito central de capturar, treinar e batalhar com Pokémon faz com que ela permaneça relevante e amada por fãs de todas as idades.</p>
       </main>
-                  <Carrosel/>
+      <Carrosel />
+      <main className="bg-[#e41f25] font-medium text-2xl rounded-2xl  text-white m-12 " >
+        Muitos Pokémon são inspirados em animais reais, plantas ou mitologia, como Bulbasaur, que se assemelha a um sapo com uma planta nas costas, ou Gyarados, inspirado em um dragão chinês. A franquia também tem raízes em várias culturas, com Ninetales, por exemplo, inspirado na lenda japonesa da raposa de nove caudas.
+        A série também fez alterações nos nomes dos Pokémon ao serem traduzidos para diferentes idiomas, como o caso de Eevee, que tem o mesmo nome no Japão e no resto do mundo, mas com uma pronúncia adaptada. Além disso, a franquia gerou uma grande quantidade de mídia e produtos, tornando-se uma das maiores e mais lucrativas do mundo do entretenimento, com jogos, filmes, cartas, brinquedos e até séries de TV.
+        Mewtwo, um dos Pokémon mais famosos, foi criado através de engenharia genética e foi central no filme Pokémon: O Filme – Mewtwo Contra-Ataca de 1998. O fenômeno Pokémon Go de 2016, que utilizou a realidade aumentada, trouxe os Pokémon para o mundo real, permitindo que os jogadores os capturassem nas ruas e parques, criando uma comunidade global de jogadores. O jogo tem o maior Pokémon já visto, Eternatus, que atinge impressionantes 20 metros de altura.
+        Cada Pokémon possui uma habilidade especial, como Levitate, que faz com que o Pokémon não seja afetado por ataques do tipo Terra. Os Shiny Pokémon, variantes raras de criaturas com cores diferentes, são muito valorizados, já que têm uma chance muito baixa de aparecer – cerca de 1 em 4096.
+      </main>
     </div>
 
   );
