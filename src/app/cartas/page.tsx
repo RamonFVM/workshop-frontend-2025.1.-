@@ -1,9 +1,7 @@
 import { Carta } from "@/Componentes/Cartas/Cartas";
 
 const Cartas=()=>{
-   return(
-
-    
+   return( 
     <div>
         <Carta/>
     </div>

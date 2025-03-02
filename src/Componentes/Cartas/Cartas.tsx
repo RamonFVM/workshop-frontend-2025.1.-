@@ -13,20 +13,53 @@ export function Carta() {
         setloading(true);
         try {
             if (value) {
+                setError("")
                 const response = await axios.get(`https://api.pokemontcg.io/v2/cards?q=name:${value}`);
-                if (response.data) { 
+                if (response.data.data.length>0) { 
                     setData(response.data.data);
                 } else {
                     setError("Nenhum Pokémon encontrado.");
+                  
                 }
             }
         } catch (error) {
-            console.log(error);
+            console.log( error);
             setError("Não foi possível fazer a requisição.");
         }finally{
             setloading(false)
+           
         }
     }
+
+    const fetchPokemonaleatory= async()=>{
+    
+        try{
+            setloading(true)
+            const response= await axios.get(`https://api.pokemontcg.io/v2/cards`)
+            if (response.data) {
+                setError("")
+                const randomPokemons = [];
+                const totalPokemons = response.data.data.length;
+                
+                for (let i = 0; i < 6; i++) {
+                    const randomIndex = Math.floor(Math.random() * totalPokemons);
+                    randomPokemons.push(response.data.data[randomIndex]);
+                }
+                setData(randomPokemons); 
+              
+            }else{
+                setError("não foi capaz de buscar os pokemon")
+             
+            }
+        }catch(error){
+            setError("Não foi possível fazer a requisição.");
+        }finally{
+            setloading(false)
+        
+        }
+        
+    }
+    
 
     function handleInput(event: React.ChangeEvent<HTMLInputElement>) {
         setValue(event.target.value.toLowerCase());
@@ -50,10 +83,33 @@ export function Carta() {
                 />
                 <button
                     onClick={fetchPokemonData} 
-                    className="bg-blue-500 text-white text-2xl p-4 rounded-2xl w-2/12 hover:border-blue-950 border-4 hover:ease-linear duration-300 transition-colors"
-                >
-                    Procurar
+                    className="bg-yellow-300
+                     cursor-pointer
+                      text-white text-2xl 
+                      p-4 
+                      rounded-2xl 
+                      w-2/12 hover:border-blue-950 
+                      border-4 hover:ease-linear
+                       duration-300
+                        transition-colors
+                        ${loading"
+                        disabled={loading} > Procurar
                 </button>
+
+                <button className="bg-yellow-300 
+                cursor-pointer
+                 text-white
+                 text-2xl p-4 
+                rounded-2xl w-2/12
+                 hover:border-blue-950 
+                 border-4
+                 hover:ease-linear d
+                 uration-300 
+                transition-colors"
+                 onClick={fetchPokemonaleatory}
+                 disabled={loading}>
+                Aleatorios</button>
+                
             </div>
                 
 
