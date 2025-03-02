@@ -3,8 +3,15 @@ import { useState } from "react"
 import { MyHeader } from "../Header/Header"
 import axios from "axios";
 
+type PokemonCard = {
+    name: string;
+    types: string[];
+    images: {
+        small: string;
+    };
+};
 export function Carta() {
-    const [data, setData] = useState<any>(null);
+    const [data, setData] = useState<PokemonCard[] | null>(null);
     const [value, setValue] = useState<string>("");
     const [error, setError] = useState<string>("");
     const [loading, setloading] = useState<boolean>(false)
