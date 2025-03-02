@@ -3,16 +3,8 @@ import { useState } from "react"
 import { MyHeader } from "../Header/Header"
 import axios from "axios";
 
-type PokemonCard = {
-    name: string;
-    types: string[];
-    images: {
-        small: string;
-    };
-};
-
 export function Carta() {
-    const [data, setData] = useState<PokemonCard[] | null>(null);
+    const [data, setData] = useState<any>(null);
     const [value, setValue] = useState<string>("");
     const [error, setError] = useState<string>("");
     const [loading, setloading] = useState<boolean>(false)
@@ -43,7 +35,7 @@ export function Carta() {
             const response = await axios.get(`https://api.pokemontcg.io/v2/cards`)
             if (response.data) {
                 setError("")
-                const randomPokemons: PokemonCard[] = [];
+                const randomPokemons = [];
                 const totalPokemons = response.data.data.length;
 
                 for (let i = 0; i < 6; i++) {
@@ -87,7 +79,7 @@ export function Carta() {
                     <button
                         onClick={fetchPokemonData}
                         className={`bg-yellow-300 
-            cursor-pointer lg:w-6/12 text-white text-xl sm:text-2xl p-4 rounded-2xl w-full sm:w-5/12 md:w-3/12 
+            cursor-pointer  text-white lg:w-6/12 text-xl sm:text-2xl p-4 rounded-2xl w-full sm:w-5/12 md:w-3/12 
             hover:border-blue-950 border-4 hover:ease-linear 
             duration-300 transition-colors
             ${loading ? 'cursor-not-allowed opacity-50' : ''}`}
@@ -126,7 +118,7 @@ export function Carta() {
                 <div className="bg-blue-950 p-6 rounded-2xl mt-8">
                     <h2 className="text-white text-3xl text-center mb-10">Resultados</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-center gap-6">
-                        {data.map((card: PokemonCard, index: number) => (
+                        {data.map((card: any, index: number) => (
                             <div key={index} className="bg-white p-4 rounded-lg shadow-lg w-60">
                                 <img
                                     src={card.images?.small}
