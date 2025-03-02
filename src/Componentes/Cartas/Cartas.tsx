@@ -10,6 +10,7 @@ type PokemonCard = {
         small: string;
     };
 };
+
 export function Carta() {
     const [data, setData] = useState<PokemonCard[] | null>(null);
     const [value, setValue] = useState<string>("");
@@ -42,7 +43,7 @@ export function Carta() {
             const response = await axios.get(`https://api.pokemontcg.io/v2/cards`)
             if (response.data) {
                 setError("")
-                const randomPokemons = [];
+                const randomPokemons: PokemonCard[] = [];
                 const totalPokemons = response.data.data.length;
 
                 for (let i = 0; i < 6; i++) {
@@ -125,7 +126,7 @@ export function Carta() {
                 <div className="bg-blue-950 p-6 rounded-2xl mt-8">
                     <h2 className="text-white text-3xl text-center mb-10">Resultados</h2>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-center gap-6">
-                        {data.map((card: any, index: number) => (
+                        {data.map((card: PokemonCard, index: number) => (
                             <div key={index} className="bg-white p-4 rounded-lg shadow-lg w-60">
                                 <img
                                     src={card.images?.small}
