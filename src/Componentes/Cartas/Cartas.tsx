@@ -83,7 +83,7 @@ export function Carta() {
             hover:border-blue-950 border-4 hover:ease-linear 
             duration-300 transition-colors
             ${loading ? 'cursor-not-allowed opacity-50' : ''}`}
-                        disabled={loading}
+                    
                     >
                         Procurar
                     </button>
@@ -95,7 +95,7 @@ export function Carta() {
             hover:border-blue-950 border-4 hover:ease-linear
             duration-300 transition-colors
             ${loading ? 'cursor-not-allowed opacity-50' : ''}`}
-                        disabled={loading}
+                    
                     >
                         Aleatórios
                     </button>
@@ -117,9 +117,9 @@ export function Carta() {
             {data && data.length > 0 && (
                 <div className="bg-blue-950 p-6 rounded-2xl mt-8">
                     <h2 className="text-white text-3xl text-center mb-10">Resultados</h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-center gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-center  gap-6">
                         {data.map((card: any, index: number) => (
-                            <div key={index} className="bg-white p-4 rounded-lg shadow-lg w-60">
+                            <div key={index} className="bg-white  p-4 rounded-lg shadow-lg w-60 hover:scale-110 hover:ease-in transition-all hover:border-red-600 border-4 hover:shadow-red-600">
                                 <img
                                     src={card.images?.small}
                                     alt={card.name}
